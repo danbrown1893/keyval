@@ -51,3 +51,6 @@ functionality.
 The 10,000,000 Key/Value pairs performance target will depend on the size of the\
 values that are stored as well. As long as the machine/pod/instance has enough memory\
 it will work and will just increase the cost.
+
+As the system scales, we could create multiple caches and add a hashing function that will\
+run on each key to determine which of the caches the value is stored on.
