@@ -1,6 +1,6 @@
-#Cache Library
+# Cache Library
 
-##Main
+## Main
 The main file can be used to start the cache and a server that will allow a user to make \
 requests for storing, retrieving, and deleting items from the cache.
 
@@ -22,7 +22,7 @@ A sample GET is:\
 A sample DELETE is:\
 `localhost:3000/store?foo`
 
-##Cache
+## Cache
 The cache uses a mutex which will allow it to be used in a process with multiple threads.\
 There are also tests and benchmarks which can be used to check the performance targets.\
 The `Get` method benchmark for a custom data structure stored as the value on my machine shows:
