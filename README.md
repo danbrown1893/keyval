@@ -50,7 +50,14 @@ functionality.
 
 The 10,000,000 Key/Value pairs performance target will depend on the size of the\
 values that are stored as well. As long as the machine/pod/instance has enough memory\
-it will work and will just increase the cost.
+it will work and will just increase the cost. Here we could consider compressing the data\
+the tradeoff is that Get operations could take longer.
 
 As the system scales, we could create multiple caches and add a hashing function that will\
-run on each key to determine which of the caches the value is stored on.
+run on each key to determine which of the caches the value is stored on. It is also more\
+performant to have shorter keys. If the system becomes distributed, we would need to\
+decide whether we value consistency or availability. Consistency meaning all partitions have\
+the same values, availability meaning we are willing to return stale data. If consistency is\
+chosen, we need to come up with a reliable replication mechanism. At this point we would need\
+to remove the mutex as it will cause the cache to become slow. Instead we could use versioning\
+of values.
